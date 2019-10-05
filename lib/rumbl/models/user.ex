@@ -13,7 +13,7 @@ defmodule Rumbl.User do
     timestamps()
   end
 
-  @doc false
+  # @doc false
   # def changeset(%User{} = user, attrs) do
   #   user
   #   |> cast(attrs, [:name, :username, :password, :password_hash])
@@ -22,7 +22,7 @@ defmodule Rumbl.User do
 
   def changeset(model, params \\ :empty) do
     model
-    |> cast(params, ~(name username), [])
+    |> cast(params, ~w(name username), [])
     |> validate_length(:username, min: 1, max: 20)
   end
 end
